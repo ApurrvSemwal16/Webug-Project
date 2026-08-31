@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  agentqa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agentqa
+    ports:
+      - "3001:3001"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=qwen2.5-coder:7b
+      - AGENTQA_PORT=3001
+      - DEMO_MODE=true
+      - NODE_ENV=production
+    volumes:
+      - agentqa-runs:/app/.agentqa/runs
+    depends_on:
+      ollama:
+        condition: service_healthy
+      demo-app:
+        condition: service_healthy
+    restart: unless-stopped
+    shm_size: 2gb
+
+  demo-app:
+    build:
+      context: ./apps/demo-app
+      dockerfile: Dockerfile
+    container_name: agentqa-demo-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: agentqa-ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 10
+    restart: unless-stopped
+
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: agentqa-ollama-init
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_MODEL=qwen2.5-coder:7b
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        until curl -sf http://ollama:11434/api/tags | grep -q "qwen2.5-coder:7b"; do
+          echo "Waiting for Ollama to be ready and model to be available..."
+          sleep 5
+        done
+        echo "Model already exists, skipping pull"
+        exit 0
+        # If model doesn't exist, pull it
+        ollama pull qwen2.5-coder:7b
+    restart: "no"
+
+volumes:
+  agentqa-runs:
+  ollama-models:
+
+networks:
+  default:
+    name: agentqa-network

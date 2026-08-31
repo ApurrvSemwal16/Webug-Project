@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentQA Demo Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="text-xl font-bold text-gray-900">AgentQA Demo Store</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="/cart" class="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a2 2 0 00-2-2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+            </svg>
+            <span id="cart-count" class="bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Home Page -->
+    <div id="home-page" class="page">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to AgentQA Demo Store</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">A deliberately buggy e-commerce application for testing AgentQA</p>
+      </div>
+
+      <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Products loaded dynamically -->
+      </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cart-page" class="page hidden">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
+      <div id="cart-items" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <!-- Cart items loaded dynamically -->
+      </div>
+      <div id="cart-empty" class="text-center py-12 hidden">
+        <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a2 2 0 00-2-2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+        </svg>
+        <p class="text-gray-600 text-lg">Your cart is empty</p>
+        <a href="/" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium">Continue Shopping</a>
+      </div>
+      <div id="cart-summary" class="hidden mt-6 lg:mt-0 lg:ml-8 lg:w-80">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-24">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-gray-600">
+              <span>Subtotal</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between text-gray-600">
+              <span>Shipping</span>
+              <span id="shipping">$9.99</span>
+            </div>
+            <hr class="border-gray-200">
+            <div class="flex justify-between text-lg font-semibold text-gray-900">
+              <span>Total</span>
+              <span id="total">$0.00</span>
+            </div>
+          </div>
+          <button id="checkout-btn" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            Proceed to Checkout
+          </button>
+          <div id="coupon-section" class="mt-4 pt-4 border-t border-gray-200">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Have a coupon?</h3>
+            <div class="flex gap-2">
+              <input type="text" id="coupon-input" placeholder="Enter code" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <button id="apply-coupon" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm">Apply</button>
+            </div>
+            <p id="coupon-message" class="text-sm mt-2 hidden"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkout-page" class="page hidden">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 space-y-6">
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Contact Information</h2>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="checkout-email" placeholder="you@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Shipping Address</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" id="checkout-name" placeholder="John Doe" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              </div>
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                <input type="text" id="checkout-address" placeholder="123 Main St" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              </div>
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                <input type="text" id="checkout-city" placeholder="San Francisco" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              </div>
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
+                <input type="text" id="checkout-zip" placeholder="94102" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Payment</h2>
+            <div class="space-y-3">
+              <label class="flex items-center">
+                <input type="radio" name="payment" value="card" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
+                <span class="ml-2 text-gray-700">Credit/Debit Card</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="payment" value="paypal" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                <span class="ml-2 text-gray-700">PayPal</span>
+              </label>
+            </div>
+            <div class="mt-4 space-y-3" id="card-fields">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                <input type="text" placeholder="4242 4242 4242 4242" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Expiry</label>
+                  <input type="text" placeholder="MM/YY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">CVC</label>
+                  <input type="text" placeholder="123" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-24">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+          <div id="checkout-items" class="space-y-3 mb-4">
+            <!-- Items loaded dynamically -->
+          </div>
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-gray-600">
+              <span>Subtotal</span>
+              <span id="checkout-subtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between text-gray-600">
+              <span>Shipping</span>
+              <span id="checkout-shipping">$9.99</span>
+            </div>
+            <div class="flex justify-between text-gray-600" id="checkout-discount-row" style="display: none;">
+              <span class="text-green-600">Discount</span>
+              <span id="checkout-discount" class="text-green-600">-$0.00</span>
+            </div>
+            <hr class="border-gray-200">
+            <div class="flex justify-between text-lg font-semibold text-gray-900">
+              <span>Total</span>
+              <span id="checkout-total">$0.00</span>
+            </div>
+          </div>
+          <button id="place-order" class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            Place Order
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Confirmation Page -->
+    <div id="confirmation-page" class="page hidden">
+      <div class="text-center py-16">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h1>
+        <p class="text-gray-600 mb-8">Thank you for your order. A confirmation email has been sent.</p>
+        <div id="order-details" class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 max-w-md mx-auto text-left mb-8">
+          <!-- Order details loaded dynamically -->
+        </div>
+        <a href="/" class="inline-block text-blue-600 hover:text-blue-700 font-medium">Continue Shopping</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <p class="text-center text-gray-500 text-sm">AgentQA Demo Store - For testing purposes only</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

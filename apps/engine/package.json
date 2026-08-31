@@ -1,0 +1,22 @@
+{
+  "name": "agentqa-engine",
+  "version": "1.0.0",
+  "main": "src/server/index.ts",
+  "scripts": {
+    "dev": "bun --watch run src/server/index.ts",
+    "start": "bun run src/server/index.ts",
+    "build": "bun build src/server/index.ts --outdir dist --target bun",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@agentqa/types": "^1.0.0",
+    "playwright": "^1.52.0",
+    "rrweb-snapshot": "^2.0.0-alpha.4",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.4.0"
+  },
+  "trustedDependencies": ["playwright"]
+}

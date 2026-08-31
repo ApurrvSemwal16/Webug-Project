@@ -1,0 +1,49 @@
+# Dependencies
+node_modules
+apps/*/node_modules
+
+# Build outputs
+apps/web/dist
+apps/web/build
+apps/engine/build
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage
+
+# Docker
+docker-compose.override.yml
+Dockerfile.*
+
+# AgentQA runs (will be mounted as volume)
+.agentqa/runs/*
+
+# Ollama models (will be mounted as volume)
+.ollama/*
+
+# Misc
+*.tmp
+*.temp
+cache/
