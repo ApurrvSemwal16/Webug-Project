@@ -1,0 +1,532 @@
+[
+  {
+    "id": "3byk36_y",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621050,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Linux\""
+      }
+    }
+  },
+  {
+    "id": "1DN9Lc57",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621086,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=0",
+        "connection": "keep-alive",
+        "content-length": "11722",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "etag": "W/\"2dca-1a04764a3c8\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Fri, 28 Aug 2026 08:02:53 GMT",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621032.392,
+        "domainLookupStart": 0.496,
+        "domainLookupEnd": 0.671,
+        "connectStart": 0.671,
+        "connectEnd": 1.186,
+        "requestStart": 1.444,
+        "responseStart": 6.069,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "xLTtKE2t",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621088,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "71nV_Mh5",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621093,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "2D_HsK5a",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621094,
+    "type": "network_request",
+    "data": {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "kKd9pw4l",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621094,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/app.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "HN2vaU16",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621097,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/app.js",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"3c9e-1a197546ad6\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "15518",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "last-modified": "Sun, 01 Nov 2026 13:37:34 GMT",
+        "x-powered-by": "Express",
+        "content-type": "application/javascript; charset=UTF-8"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621068.276,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.648,
+        "responseStart": 5.691,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "fSrY7i-6",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621413,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/",
+      "status": 302,
+      "statusText": "",
+      "headers": {
+        "strict-transport-security": "max-age=63072000",
+        "cache-control": "max-age=14400",
+        "location": "/3.4.17",
+        "x-vercel-cache": "MISS",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cf-cache-status": "HIT",
+        "age": "244",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5nXyw3YVNtudbkquH44T5LSrwBb4yt%2FqVHneJz%2FPkO7Wp3uqP5yr5wZmrGcQI%2Bh0gIxP1l1C1WobHYZBhrImaluT1nFCBqway520igsrw3MAfy0N3UiEg8mHUUgIPVBzhpMu9FtiJcwRmJRG8a%2Fi0yU%3D\"}]}",
+        "cf-ray": "a53bb61b8da8548c-DEL",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "server": "cloudflare",
+        "x-vercel-id": "bom1::iad1::w8c86-1793544376539-9989f1d4636a"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621066.4111,
+        "domainLookupStart": 0.663,
+        "domainLookupEnd": 15.5,
+        "connectStart": 15.752,
+        "connectEnd": 322.5,
+        "requestStart": 323.351,
+        "responseStart": 342.163,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "keV99fkM",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621414,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/3.4.17",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "referer": "http://localhost:3000/"
+      }
+    }
+  },
+  {
+    "id": "pYY5-Fxn",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621473,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/3.4.17",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "strict-transport-security": "max-age=63072000",
+        "cache-control": "max-age=31536000",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "content-encoding": "br",
+        "x-vercel-cache": "MISS",
+        "cf-cache-status": "HIT",
+        "age": "749869",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Qu7QRACej0cPZ%2B3IhopKfJ3X1xCndX5TOrYOFxCva4xTctTNNe8k1%2FU5pPSjSgRqawF5aProeAiH2CmWxJIYmdG8%2FD1Z1I0j2JCiwfSLco7SAQwKLrWq2GQvNjlO%2F0%2FPGdpMNbGsevhNSFQ5M7c%2B%2FHc%3D\"}]}",
+        "last-modified": "Wed, 28 Oct 2026 01:41:15 GMT",
+        "cf-ray": "a53bb61bbdbf548c-DEL",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "content-type": "text/javascript",
+        "vary": "accept-encoding",
+        "server": "cloudflare",
+        "x-vercel-id": "bom1::iad1::mnwth-1792794751405-47e4c7c19762"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621410.6082,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.674,
+        "responseStart": 18.557,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "QBBwcDfU",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621586,
+    "type": "console_warning",
+    "data": {
+      "text": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+      "location": {
+        "url": "https://cdn.tailwindcss.com/",
+        "line": 63,
+        "column": 1710,
+        "lineNumber": 63,
+        "columnNumber": 1710
+      }
+    }
+  },
+  {
+    "id": "zjNpjUoo",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621587,
+    "type": "network_response",
+    "data": {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "content-encoding": "gzip",
+        "x-content-type-options": "nosniff",
+        "expires": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "content-type": "text/css; charset=utf-8",
+        "vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "last-modified": "Sun, 01 Nov 2026 13:44:38 GMT",
+        "x-frame-options": "SAMEORIGIN",
+        "strict-transport-security": "max-age=31536000",
+        "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+        "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+        "timing-allow-origin": "*",
+        "cross-origin-opener-policy": "same-origin-allow-popups",
+        "cross-origin-resource-policy": "cross-origin",
+        "access-control-allow-origin": "*",
+        "x-xss-protection": "0",
+        "server": "ESF"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621067.618,
+        "domainLookupStart": 0.326,
+        "domainLookupEnd": 15.288,
+        "connectStart": 15.483,
+        "connectEnd": 320.807,
+        "requestStart": 321.751,
+        "responseStart": 414.857,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "wyuj4Izm",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621836,
+    "type": "network_request",
+    "data": {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "method": "GET",
+      "headers": {
+        "origin": "http://localhost:3000",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://fonts.googleapis.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "6c5yOGNc",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621841,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/products",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "KeWDTf0M",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621846,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/products",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "etag": "W/\"1a9-x4ymPlM1OaZAokoixbXC0H1WQW0\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "425",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621836.323,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.393,
+        "responseStart": 3.576,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "6NDWLvQM",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621923,
+    "type": "network_response",
+    "data": {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "age": "258758",
+        "report-to": "{\"group\":\"apps-themes\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/apps-themes\"}]}",
+        "x-content-type-options": "nosniff",
+        "expires": "Fri, 29 Oct 2027 14:57:43 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "date": "Thu, 29 Oct 2026 14:57:43 GMT",
+        "last-modified": "Tue, 09 Sep 2025 18:33:53 GMT",
+        "content-type": "font/woff2",
+        "cache-control": "public, max-age=31536000",
+        "timing-allow-origin": "*",
+        "cross-origin-opener-policy": "same-origin; report-to=\"apps-themes\"",
+        "cross-origin-resource-policy": "cross-origin",
+        "content-security-policy-report-only": "require-trusted-types-for 'script'; report-uri https://csp.withgoogle.com/csp/apps-themes",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "48256",
+        "x-xss-protection": "0",
+        "server": "sffe"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621835.031,
+        "domainLookupStart": 0.368,
+        "domainLookupEnd": 2.691,
+        "connectStart": 2.832,
+        "connectEnd": 31.469,
+        "requestStart": 31.935,
+        "responseStart": 41.265,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "Mv0uKdIp",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544621949,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.11/dist/rrweb.min.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "ECkqGcx0",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544622034,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.11/dist/rrweb.min.js",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "access-control-expose-headers": "*",
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"241cd-xlboN+r9G02VCGGOWjAU/z0LE5E\"",
+        "age": "12314729",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=VPqO9VxK%2FRDbHd4nZ4VH78xcQg2x8h7KS3nOQbGH5Ro17dzC7s7sBG7koHrHohUD%2F01TrGDuLjnTFIQhGnsoOFU%2BcJPszQzoDWJGLzbfWAoGKLy3ijLwHwPIVcpRx4TMpyEl9a%2FZ8RwPR3gt7Aw%3D\"}]}",
+        "x-content-type-options": "nosniff",
+        "x-jsd-version-type": "version",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-cache": "HIT, HIT",
+        "date": "Sun, 01 Nov 2026 14:50:21 GMT",
+        "content-type": "application/javascript; charset=utf-8",
+        "x-served-by": "cache-fra-etou8220114-FRA, cache-bom-vanm7210085-BOM",
+        "vary": "Accept-Encoding",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "timing-allow-origin": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a53bb61f492ef563-DEL",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "45574",
+        "server": "cloudflare",
+        "x-jsd-version": "2.0.0-alpha.11"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793544621948.233,
+        "domainLookupStart": 0.327,
+        "domainLookupEnd": 11.586,
+        "connectStart": 11.949,
+        "connectEnd": 44.458,
+        "requestStart": 44.782,
+        "responseStart": 60.284,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "b-anaIk2",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544622108,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/",
+      "title": "AgentQA Demo Store",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "YY-Pqlds",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544648897,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": ".add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+        "description": "Clicking 'Add to Cart' button",
+        "timestamp": 1793544648898
+      },
+      "success": false,
+      "error": "Could not find clickable element: .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors"
+    }
+  },
+  {
+    "id": "32e9CvOc",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544669367,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": ".add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+        "description": "Clicking 'Add to Cart' button to proceed",
+        "timestamp": 1793544669367
+      },
+      "success": false,
+      "error": "Could not find clickable element: .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors"
+    }
+  },
+  {
+    "id": "5RscAVHx",
+    "runId": "auto-test-1793544620771",
+    "timestamp": 1793544676938,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "navigate",
+        "target": "/cart}",
+        "description": "Navigate to the cart page after clicking 'Add to Cart' button.",
+        "timestamp": 1793544676938
+      },
+      "success": false,
+      "error": "goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n  - navigating to \"/cart}\", waiting until \"domcontentloaded\"\n"
+    }
+  }
+]

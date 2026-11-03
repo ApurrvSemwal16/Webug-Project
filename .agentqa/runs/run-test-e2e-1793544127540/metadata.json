@@ -1,0 +1,124 @@
+{
+  "id": "test-e2e-1793544127540",
+  "url": "http://localhost:3000/confirmation",
+  "goal": "Test the checkout flow and coupon validation",
+  "startTime": 1793544127541,
+  "status": "STOPPED",
+  "actions": [
+    {
+      "type": "click",
+      "target": ".add-to-cart",
+      "description": "Add product to cart",
+      "timestamp": 1793544129687
+    },
+    {
+      "type": "click",
+      "target": "a[href=\"/cart\"]",
+      "description": "Navigate to cart",
+      "timestamp": 1793544130302
+    },
+    {
+      "type": "type",
+      "target": "#coupon-input",
+      "value": "SAVE10",
+      "description": "Enter coupon code SAVE10",
+      "timestamp": 1793544130877
+    },
+    {
+      "type": "click",
+      "target": "#apply-coupon",
+      "description": "Apply coupon",
+      "timestamp": 1793544131464
+    },
+    {
+      "type": "click",
+      "target": "#checkout-btn",
+      "description": "Proceed to checkout",
+      "timestamp": 1793544132072
+    },
+    {
+      "type": "type",
+      "target": "#checkout-email",
+      "value": "test@example.com",
+      "description": "Enter email address",
+      "timestamp": 1793544132617
+    },
+    {
+      "type": "type",
+      "target": "#checkout-name",
+      "value": "John Doe",
+      "description": "Enter full name",
+      "timestamp": 1793544133178
+    },
+    {
+      "type": "type",
+      "target": "#checkout-address",
+      "value": "123 Main St",
+      "description": "Enter shipping address",
+      "timestamp": 1793544133742
+    },
+    {
+      "type": "type",
+      "target": "#checkout-city",
+      "value": "San Francisco",
+      "description": "Enter city",
+      "timestamp": 1793544134298
+    },
+    {
+      "type": "type",
+      "target": "#checkout-zip",
+      "value": "94102",
+      "description": "Enter ZIP code",
+      "timestamp": 1793544134851
+    },
+    {
+      "type": "click",
+      "target": "#place-order",
+      "description": "Place order",
+      "timestamp": 1793544135471
+    },
+    {
+      "type": "finish",
+      "target": "done",
+      "description": "Test complete - order confirmed",
+      "timestamp": 1793544135990
+    }
+  ],
+  "events": [],
+  "incidents": [],
+  "bugs": [
+    {
+      "id": "bug-test-e2e-1793544127540-qhPS_lzv",
+      "runId": "test-e2e-1793544127540",
+      "incidentId": "qhPS_lzv",
+      "title": "Defect on console_error",
+      "severity": "critical",
+      "confidence": 0.9,
+      "expected": "Successful execution",
+      "actual": "Failure event: {\"text\":\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\",\"location\":{\"url\":\"http://localhost:3000/api/coupon\",\"line\":0,\"column\":0,\"lineNumber\":0,\"columnNumber\":0}}",
+      "rootCause": "Unknown",
+      "evidence": [
+        {
+          "eventId": "OmLhYpis",
+          "type": "console_error",
+          "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "timestamp": 1793544131477,
+          "replayTimestamp": 3620,
+          "data": {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "location": {
+              "url": "http://localhost:3000/api/coupon",
+              "line": 0,
+              "column": 0,
+              "lineNumber": 0,
+              "columnNumber": 0
+            }
+          }
+        }
+      ],
+      "createdAt": 1793544381287
+    }
+  ],
+  "demoMode": true,
+  "endTime": 1793544427542
+}

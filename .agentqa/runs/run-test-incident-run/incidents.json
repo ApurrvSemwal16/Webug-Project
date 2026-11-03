@@ -1,0 +1,74 @@
+[
+  {
+    "id": "if4zHo-D",
+    "runId": "test-incident-run",
+    "eventIds": [
+      "ev-1",
+      "ev-2",
+      "ev-3"
+    ],
+    "firstTimestamp": 1793543850324,
+    "lastTimestamp": 1793543850344,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error) at http:/",
+    "investigated": false
+  },
+  {
+    "id": "ktqsznkp",
+    "runId": "test-incident-run",
+    "eventIds": [
+      "ev-coupon"
+    ],
+    "firstTimestamp": 1793543850330,
+    "lastTimestamp": 1793543850330,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/coupon → 500 undefined",
+    "investigated": false
+  },
+  {
+    "id": "MANDNWX6",
+    "runId": "test-incident-run",
+    "eventIds": [
+      "ev-checkout"
+    ],
+    "firstTimestamp": 1793543850380,
+    "lastTimestamp": 1793543850380,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/checkout",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/checkout → 502 undefined",
+    "investigated": false
+  },
+  {
+    "id": "DopuXeJd",
+    "runId": "test-incident-run",
+    "eventIds": [
+      "ev-coupon"
+    ],
+    "firstTimestamp": 1793543867122,
+    "lastTimestamp": 1793543867122,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/coupon → 500 undefined",
+    "investigated": false
+  },
+  {
+    "id": "sDSK8Lzm",
+    "runId": "test-incident-run",
+    "eventIds": [
+      "ev-checkout"
+    ],
+    "firstTimestamp": 1793543867172,
+    "lastTimestamp": 1793543867172,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/checkout",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/checkout → 502 undefined",
+    "investigated": false
+  }
+]

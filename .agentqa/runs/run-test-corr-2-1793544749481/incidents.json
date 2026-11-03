@@ -1,0 +1,30 @@
+[
+  {
+    "id": "F-FWrEDY",
+    "runId": "test-corr-2-1793544749481",
+    "eventIds": [
+      "ev-coupon"
+    ],
+    "firstTimestamp": 1793544749481,
+    "lastTimestamp": 1793544749481,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/coupon → 500 undefined",
+    "investigated": false
+  },
+  {
+    "id": "x2LpdLKE",
+    "runId": "test-corr-2-1793544749481",
+    "eventIds": [
+      "ev-checkout"
+    ],
+    "firstTimestamp": 1793544749531,
+    "lastTimestamp": 1793544749531,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/checkout",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/checkout → 502 undefined",
+    "investigated": false
+  }
+]

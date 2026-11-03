@@ -1,0 +1,30 @@
+[
+  {
+    "id": "-WUUh_Le",
+    "runId": "test-corr-2-1793544840808",
+    "eventIds": [
+      "ev-coupon"
+    ],
+    "firstTimestamp": 1793544840808,
+    "lastTimestamp": 1793544840808,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/coupon → 500 undefined",
+    "investigated": false
+  },
+  {
+    "id": "T2ytL6KC",
+    "runId": "test-corr-2-1793544840808",
+    "eventIds": [
+      "ev-checkout"
+    ],
+    "firstTimestamp": 1793544840858,
+    "lastTimestamp": 1793544840858,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/checkout",
+    "relatedActions": [],
+    "description": "POST http://localhost:3000/api/checkout → 502 undefined",
+    "investigated": false
+  }
+]

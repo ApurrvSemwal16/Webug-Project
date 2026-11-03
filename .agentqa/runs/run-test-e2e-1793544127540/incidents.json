@@ -1,0 +1,16 @@
+[
+  {
+    "id": "qhPS_lzv",
+    "runId": "test-e2e-1793544127540",
+    "eventIds": [
+      "OmLhYpis"
+    ],
+    "firstTimestamp": 1793544131477,
+    "lastTimestamp": 1793544131477,
+    "severity": "high",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "investigated": true
+  }
+]

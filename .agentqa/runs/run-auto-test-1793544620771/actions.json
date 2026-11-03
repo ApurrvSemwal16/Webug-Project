@@ -1,0 +1,20 @@
+[
+  {
+    "type": "click",
+    "target": ".add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+    "description": "Clicking 'Add to Cart' button",
+    "timestamp": 1793544648898
+  },
+  {
+    "type": "click",
+    "target": ".add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+    "description": "Clicking 'Add to Cart' button to proceed",
+    "timestamp": 1793544669367
+  },
+  {
+    "type": "navigate",
+    "target": "/cart}",
+    "description": "Navigate to the cart page after clicking 'Add to Cart' button.",
+    "timestamp": 1793544676938
+  }
+]

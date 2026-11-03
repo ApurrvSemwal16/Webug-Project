@@ -1,0 +1,78 @@
+[
+  {
+    "id": "bug-test-e2e-1793544505653-it9Kem6x",
+    "runId": "test-e2e-1793544505653",
+    "incidentId": "it9Kem6x",
+    "title": "Internal Server Error Occurred During Coupon Validation",
+    "severity": "high",
+    "confidence": 1,
+    "expected": "The coupon validation flow should complete successfully without errors.",
+    "actual": "The API endpoint http://localhost:3000/api/coupon returned a 500 Internal Server Error when a coupon code was entered and applied.",
+    "rootCause": "Unknown",
+    "evidence": [
+      {
+        "eventId": "2dZAUjIN",
+        "type": "network_response",
+        "description": "REQUEST http://localhost:3000/api/coupon → 500 Internal Server Error",
+        "timestamp": 1793544509522,
+        "replayTimestamp": 3624,
+        "data": {
+          "url": "http://localhost:3000/api/coupon",
+          "status": 500,
+          "statusText": "Internal Server Error",
+          "headers": {
+            "etag": "W/\"53-2ng1T/pjQZhY2J4wyyryvYs+/Io\"",
+            "connection": "keep-alive",
+            "access-control-allow-origin": "*",
+            "content-length": "83",
+            "keep-alive": "timeout=5",
+            "date": "Sun, 01 Nov 2026 14:48:29 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "x-powered-by": "Express"
+          },
+          "fromCache": false,
+          "timing": {
+            "startTime": 1793544509511.3982,
+            "domainLookupStart": -1,
+            "domainLookupEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "requestStart": 0.424,
+            "responseStart": 4.154,
+            "responseEnd": -1
+          }
+        }
+      },
+      {
+        "eventId": "Jvyb1p2x",
+        "type": "network_error",
+        "description": "Network error: http://localhost:3000/api/coupon - Unknown",
+        "timestamp": 1793544509524,
+        "replayTimestamp": 3626,
+        "data": {
+          "url": "http://localhost:3000/api/coupon",
+          "status": 500,
+          "statusText": "Internal Server Error"
+        }
+      },
+      {
+        "eventId": "ygt4H6x-",
+        "type": "console_error",
+        "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "timestamp": 1793544509524,
+        "replayTimestamp": 3626,
+        "data": {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "location": {
+            "url": "http://localhost:3000/api/coupon",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        }
+      }
+    ],
+    "createdAt": 1793544557155
+  }
+]

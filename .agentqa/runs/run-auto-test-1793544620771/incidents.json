@@ -1,0 +1,44 @@
+[
+  {
+    "id": "2-nLFSyY",
+    "runId": "auto-test-1793544620771",
+    "eventIds": [
+      "YY-Pqlds"
+    ],
+    "firstTimestamp": 1793544648897,
+    "lastTimestamp": 1793544648897,
+    "severity": "medium",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Action failed: click .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors - Could not find clickable element: .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+    "investigated": true
+  },
+  {
+    "id": "u4ZSNqnd",
+    "runId": "auto-test-1793544620771",
+    "eventIds": [
+      "32e9CvOc"
+    ],
+    "firstTimestamp": 1793544669367,
+    "lastTimestamp": 1793544669367,
+    "severity": "medium",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Action failed: click .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors - Could not find clickable element: .add-to-cart.bg-blue-600.text-white.px-3.py-1.5.rounded-lg.text-sm.font-medium.transition-colors",
+    "investigated": false
+  },
+  {
+    "id": "tT-VfxFL",
+    "runId": "auto-test-1793544620771",
+    "eventIds": [
+      "5RscAVHx"
+    ],
+    "firstTimestamp": 1793544676938,
+    "lastTimestamp": 1793544676938,
+    "severity": "medium",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Action failed: navigate /cart} - goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n  - navigating to \"/cart}\", waiting until \"domcontentloaded\"\n",
+    "investigated": false
+  }
+]
