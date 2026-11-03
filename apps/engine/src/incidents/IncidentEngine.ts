@@ -20,6 +20,7 @@ export class IncidentEngine {
   private storage: StorageManager;
   private pendingIncidents: Map<string, PendingIncident> = new Map();
   private incidentTimeouts: Map<string, NodeJS.Timeout> = new Map();
+  private finalizedIncidents: Map<string, Incident[]> = new Map();
 
   constructor(storage: StorageManager) {
     this.storage = storage;
@@ -56,42 +57,62 @@ export class IncidentEngine {
     this.resetIncidentTimer(runId, incidentKey, pending);
   }
 
+  private normalizePath(rawUrl: string): string {
+    try {
+      const u = new URL(rawUrl);
+      return u.pathname;
+    } catch {
+      return (rawUrl || "").split("?")[0];
+    }
+  }
+
   private getIncidentKey(event: BrowserEvent): string | null {
-    // Group by URL and error type
     switch (event.type) {
       case "network_response": {
         const data = event.data as any;
         if (data.status >= 400) {
-          return `network:${data.url}:${data.status}`;
+          const path = this.normalizePath(data.url);
+          return "failure:url:" + path;
         }
         return null;
       }
       case "network_error": {
         const data = event.data as any;
-        return `network_error:${data.url}`;
+        const path = this.normalizePath(data.url);
+        return "failure:url:" + path;
       }
       case "console_error": {
         const data = event.data as any;
-        // Group similar console errors
-        const errorText = data.text?.substring(0, 100) || "unknown";
-        return `console_error:${errorText}`;
+        const text = String(data.text || "");
+        const urlMatch = text.match(/https?:\/\/[^\s"'<>]+/);
+        if (urlMatch) {
+          const path = this.normalizePath(urlMatch[0]);
+          return "failure:url:" + path;
+        }
+        // If console error occurs within 5s of an active network failure, correlate to that incident
+        for (const [key, pending] of this.pendingIncidents.entries()) {
+          if (key.startsWith("failure:url:") && event.timestamp - pending.lastTimestamp < 5000) {
+            return key;
+          }
+        }
+        return "failure:console:" + text.substring(0, 80);
       }
       case "page_error":
       case "exception": {
         const data = event.data as any;
-        const message = data.message?.substring(0, 100) || "unknown";
-        return `exception:${message}`;
+        const message = String(data.message || "").substring(0, 80);
+        return "failure:exception:" + message;
       }
       case "agent_action": {
         const data = event.data as any;
         if (!data.success) {
-          return `action_failure:${data.action?.target || "unknown"}`;
+          return "failure:action:" + (data.action?.target || "unknown");
         }
         return null;
       }
       case "timeout": {
         const data = event.data as any;
-        return `timeout:${data.action?.target || "unknown"}`;
+        return "failure:timeout:" + (data.action?.target || "unknown");
       }
       default:
         return null;
@@ -216,10 +237,14 @@ export class IncidentEngine {
       investigated: false,
     };
 
-    // Save incident
-    const existingIncidents = await this.storage.getIncidents(runId);
-    existingIncidents.push(incident);
-    await this.storage.setIncidents(runId, existingIncidents);
+    // Save incident to in-memory map and persist
+    let list = this.finalizedIncidents.get(runId);
+    if (!list) {
+      list = await this.storage.getIncidents(runId);
+      this.finalizedIncidents.set(runId, list);
+    }
+    list.push(incident);
+    await this.storage.setIncidents(runId, list);
 
     console.log(`[incidents] Created incident ${incident.id}: ${incident.description} (${incident.severity})`);
   }
@@ -232,14 +257,19 @@ export class IncidentEngine {
   }
 
   async getIncidents(runId: string): Promise<Incident[]> {
-    return this.storage.getIncidents(runId);
+    const mem = this.finalizedIncidents.get(runId);
+    if (mem && mem.length > 0) return [...mem];
+    const loaded = await this.storage.getIncidents(runId);
+    this.finalizedIncidents.set(runId, loaded);
+    return loaded;
   }
 
   async markInvestigated(runId: string, incidentId: string): Promise<void> {
-    const incidents = await this.storage.getIncidents(runId);
+    const incidents = await this.getIncidents(runId);
     const incident = incidents.find(i => i.id === incidentId);
     if (incident) {
       incident.investigated = true;
+      this.finalizedIncidents.set(runId, incidents);
       await this.storage.setIncidents(runId, incidents);
     }
   }

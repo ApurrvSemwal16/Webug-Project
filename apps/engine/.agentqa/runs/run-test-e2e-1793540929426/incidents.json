@@ -1,0 +1,30 @@
+[
+  {
+    "id": "Z721CdL5",
+    "runId": "test-e2e-1793540929426",
+    "eventIds": [
+      "5RGuXN-C"
+    ],
+    "firstTimestamp": 1793540933436,
+    "lastTimestamp": 1793540933436,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "Network error: http://localhost:3000/api/coupon - Unknown",
+    "investigated": false
+  },
+  {
+    "id": "bVip-GLL",
+    "runId": "test-e2e-1793540929426",
+    "eventIds": [
+      "zDDHhjXS"
+    ],
+    "firstTimestamp": 1793540933439,
+    "lastTimestamp": 1793540933439,
+    "severity": "high",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "investigated": false
+  }
+]

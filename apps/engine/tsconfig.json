@@ -3,21 +3,32 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2022"],
-    "strict": true,
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "declarationMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "baseUrl": ".",
     "paths": {
-      "@agentqa/types": ["../packages/types/index.ts"]
-    }
+      "@agentqa/types": [
+        "../../packages/types/index.ts"
+      ]
+    },
+    "composite": false,
+    "types": [
+      "bun",
+      "node",
+      "bun-types"
+    ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

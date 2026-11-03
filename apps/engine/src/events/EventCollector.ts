@@ -5,6 +5,7 @@
 import { BrowserEvent, EventType } from "@agentqa/types";
 import { IncidentEngine } from "../incidents/IncidentEngine";
 import { TestManager } from "../test/TestManager";
+import { StorageManager } from "../storage/StorageManager";
 
 type EventCallback = (event: BrowserEvent) => void;
 
@@ -14,9 +15,11 @@ export class EventCollector {
   private incidentEngine: IncidentEngine | null = null;
   private testManager: TestManager | null = null;
   private runId: string | null = null;
+  private storage: StorageManager | null = null;
 
   setRunId(runId: string): void {
     this.runId = runId;
+    this.events = []; // clear events for new run
   }
 
   setIncidentEngine(engine: IncidentEngine): void {
@@ -25,6 +28,10 @@ export class EventCollector {
 
   setTestManager(manager: TestManager): void {
     this.testManager = manager;
+  }
+
+  setStorage(storage: StorageManager): void {
+    this.storage = storage;
   }
 
   subscribe(callback: EventCallback): () => void {
@@ -36,8 +43,16 @@ export class EventCollector {
   }
 
   collect(event: BrowserEvent): void {
-    // Add to local storage
+    // Add to local memory
     this.events.push(event);
+
+    // Persist to storage asynchronously
+    if (this.storage && this.runId) {
+      this.storage.appendEvent(this.runId, event).catch(err => {
+        // Non-fatal: log but continue
+        console.error("[events] Storage error:", err);
+      });
+    }
 
     // Filter: determine if this event is suspicious
     const isSuspicious = this.isSuspiciousEvent(event);
@@ -62,7 +77,7 @@ export class EventCollector {
   private isSuspiciousEvent(event: BrowserEvent): boolean {
     switch (event.type) {
       case "network_response": {
-        const data = event.data as any;
+        const data = event.data as Record<string, number>;
         return data.status >= 400;
       }
       case "network_error":
@@ -72,7 +87,7 @@ export class EventCollector {
       case "timeout":
         return true;
       case "agent_action": {
-        const data = event.data as any;
+        const data = event.data as Record<string, boolean>;
         return !data.success;
       }
       default:

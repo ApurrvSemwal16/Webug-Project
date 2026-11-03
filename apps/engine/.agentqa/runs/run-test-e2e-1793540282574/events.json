@@ -1,0 +1,277 @@
+[
+  {
+    "id": "OP-Wy6lG",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540285103,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/cart",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "iTdflrf8",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540285126,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "a[href=\"/cart\"]",
+        "description": "Navigate to cart",
+        "timestamp": 1793540285126
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "5YZ_TeGa",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540285680,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#coupon-input",
+        "value": "SAVE10",
+        "description": "Enter coupon code SAVE10",
+        "timestamp": 1793540285680
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "yLgVoCy7",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540286268,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/coupon",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/cart",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"code\":\"SAVE10\"}"
+    }
+  },
+  {
+    "id": "08vigiOv",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540286271,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#apply-coupon",
+        "description": "Apply coupon",
+        "timestamp": 1793540286271
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "vM66h-T4",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540286275,
+    "type": "console_error",
+    "data": {
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "location": {
+        "url": "http://localhost:3000/api/coupon",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  },
+  {
+    "id": "-PB_1dCT",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540286866,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/checkout",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "moXyUX0c",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540286884,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#checkout-btn",
+        "description": "Proceed to checkout",
+        "timestamp": 1793540286885
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "I9X4VeIX",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540287432,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-email",
+        "value": "test@example.com",
+        "description": "Enter email address",
+        "timestamp": 1793540287432
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "JnEnenTh",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540287988,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-name",
+        "value": "John Doe",
+        "description": "Enter full name",
+        "timestamp": 1793540287989
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "8PjJ547w",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540288539,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-address",
+        "value": "123 Main St",
+        "description": "Enter shipping address",
+        "timestamp": 1793540288539
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "Xh2fT-T_",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540289101,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-city",
+        "value": "San Francisco",
+        "description": "Enter city",
+        "timestamp": 1793540289101
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "VVMiSy5g",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540289648,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-zip",
+        "value": "94102",
+        "description": "Enter ZIP code",
+        "timestamp": 1793540289648
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "Ezetvptq",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540290219,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/checkout",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/checkout",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"email\":\"test@example.com\",\"shippingAddress\":\"John Doe, 123 Main St, San Francisco 94102\"}"
+    }
+  },
+  {
+    "id": "Zs0UQu8H",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540290223,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#place-order",
+        "description": "Place order",
+        "timestamp": 1793540290223
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "VPeOLrkZ",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540290231,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/checkout",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "etag": "W/\"109-YfKA17bYFDz1PQaCNPzAfXm7H/Q\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "265",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:38:10 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793540290216.9,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.53,
+        "responseStart": 5.254,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "dh90koNY",
+    "runId": "test-e2e-1793540282574",
+    "timestamp": 1793540290233,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/confirmation",
+      "title": "",
+      "referrer": ""
+    }
+  }
+]

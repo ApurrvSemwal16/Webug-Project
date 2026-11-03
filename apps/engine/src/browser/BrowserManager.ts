@@ -2,7 +2,7 @@
  * Browser Manager - Handles Playwright browser lifecycle and page interactions
  */
 
-import { chromium, Browser, BrowserContext, Page, CDPSession } from "playwright";
+import { chromium, Browser, BrowserContext, Page, CDPSession, Response as PlaywrightResponse } from "playwright";
 import { CompactPageState, InteractiveElement, AgentAction, BrowserEvent, EventType } from "@agentqa/types";
 import { EventCollector } from "../events/EventCollector";
 import { nanoid } from "nanoid";
@@ -56,8 +56,17 @@ export class BrowserManager {
     // Set up event listeners
     this.setupEventListeners();
 
-    // Inject rrweb recorder
-    await this.injectRRWeb();
+    // Setup rrweb before any navigation
+    await this.setupRRWeb();
+  }
+
+  private async setupRRWeb(): Promise<void> {
+    if (!this.page) return;
+    await this.page.addInitScript(() => {
+      (window as any).__rrweb_events = [];
+      (window as any).__rrweb_is_recording = false;
+    });
+    this.startRRWebPolling();
   }
 
   private setupEventListeners(): void {
@@ -76,6 +85,23 @@ export class BrowserManager {
 
     this.page.on("load", async () => {
       if (this.page) {
+        // Inject rrweb on load
+        try {
+          await this.page.addScriptTag({ url: "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.11/dist/rrweb.min.js" });
+          await this.page.evaluate(() => {
+            if (typeof (window as any).rrweb !== "undefined" && !(window as any).__rrweb_is_recording) {
+              (window as any).rrweb.record({
+                emit(event: any) {
+                  (window as any).__rrweb_events.push(event);
+                }
+              });
+              (window as any).__rrweb_is_recording = true;
+            }
+          });
+        } catch (e) {
+          console.error("[browser] Failed to inject rrweb:", e);
+        }
+        
         const title = await this.page.title();
         this.recordEvent("navigation", {
           url: this.page.url(),
@@ -118,14 +144,14 @@ export class BrowserManager {
       });
     });
 
-    this.page.on("response", async (response) => {
-      const timing = response.timing();
+    this.page.on("response", async (response: PlaywrightResponse) => {
+      const timing = (response as any).timing ? (response as any).timing() : response.request()?.timing();
       this.recordEvent("network_response", {
         url: response.url(),
         status: response.status(),
         statusText: response.statusText(),
         headers: response.headers(),
-        fromCache: response.fromCache(),
+        fromCache: (response as any).fromCache?.() || false,
         timing: {
           startTime: timing?.startTime || 0,
           domainLookupStart: timing?.domainLookupStart || 0,
@@ -157,64 +183,36 @@ export class BrowserManager {
     });
 
     // Click events (we'll also capture these via our own action execution)
-    this.page.on("click", async (event) => {
-      // This is for native clicks not triggered by our actions
-    });
+
   }
 
-  private async injectRRWeb(): Promise<void> {
-    if (!this.page) return;
-
-    // Inject rrweb snapshot and record
-    await this.page.addInitScript(() => {
-      // rrweb will be injected via the snapshot script
-      (window as any).__rrweb_events = [];
-    });
-
-    // We'll use rrweb-snapshot to capture snapshots periodically
-    this.startRRWebRecording();
-  }
-
-  private startRRWebRecording(): void {
+  private startRRWebPolling(): void {
     if (!this.page) return;
     this.rrwebRecording = true;
 
-    const recordSnapshot = async () => {
+    const pollEvents = async () => {
       if (!this.rrwebRecording || !this.page) return;
 
       try {
-        // Capture snapshot using rrweb-snapshot approach
-        const snapshot = await this.page.evaluate(() => {
-          // Simple DOM snapshot for replay
-          return {
-            timestamp: Date.now(),
-            html: document.documentElement.outerHTML,
-            url: window.location.href,
-            scrollX: window.scrollX,
-            scrollY: window.scrollY,
-          };
+        const events = await this.page.evaluate(() => {
+          const evs = (window as any).__rrweb_events || [];
+          (window as any).__rrweb_events = [];
+          return evs;
         });
 
-        this.rrwebEvents.push({
-          type: 2, // Full snapshot
-          timestamp: snapshot.timestamp,
-          data: {
-            node: snapshot.html,
-            initialOffset: { x: snapshot.scrollX, y: snapshot.scrollY },
-          },
-        });
+        if (events && events.length > 0) {
+          this.rrwebEvents.push(...events);
+        }
       } catch (error) {
-        console.error("[browser] RRWeb snapshot error:", error);
+        // Just ignore errors if page is navigating
       }
 
-      // Schedule next snapshot
       if (this.rrwebRecording) {
-        setTimeout(recordSnapshot, 1000); // Every 1 second
+        setTimeout(pollEvents, 1000);
       }
     };
 
-    // Start recording after a short delay
-    setTimeout(recordSnapshot, 500);
+    setTimeout(pollEvents, 1000);
   }
 
   stopRRWebRecording(): any[] {
@@ -229,7 +227,12 @@ export class BrowserManager {
   async navigate(url: string): Promise<void> {
     if (!this.page) throw new Error("Browser not launched");
 
-    await this.page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+    const cleanUrl = url.replace(/[}"'\s]+$/, "").trim();
+    const finalUrl = cleanUrl.startsWith("http://") || cleanUrl.startsWith("https://")
+      ? cleanUrl
+      : new URL(cleanUrl, this.page.url() || "http://localhost:3000").toString();
+
+    await this.page.goto(finalUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
     await this.page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   }
 
@@ -239,9 +242,15 @@ export class BrowserManager {
     return await this.page.evaluate(() => {
       const getSelector = (element: Element): string => {
         if (element.id) return `#${element.id}`;
-        if (element.className) {
-          const classes = element.className.split(" ").filter(c => c).join(".");
-          if (classes) return `.${classes}`;
+        if (element.tagName.toLowerCase() === "a" && element.getAttribute("href")) {
+          return `a[href="${element.getAttribute("href")}"]`;
+        }
+        if (element.className && typeof element.className === "string") {
+          const classList = element.className.split(/\s+/).filter(Boolean);
+          const semantic = classList.find(c => !c.includes(":") && !c.includes("/") && !c.includes(".") && (c.includes("-") || c.length > 2));
+          if (semantic) return `.${semantic}`;
+          const cleanClass = classList.find(c => !c.includes(":") && !c.includes("/") && !c.includes("."));
+          if (cleanClass) return `.${cleanClass}`;
         }
         return element.tagName.toLowerCase();
       };
@@ -253,7 +262,7 @@ export class BrowserManager {
       };
 
       const isEnabled = (element: HTMLButtonElement | HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean => {
-        return !element.disabled && !element.readOnly;
+        return !element.disabled && !(element as any).readOnly;
       };
 
       const buttons: InteractiveElement[] = [];
@@ -293,9 +302,10 @@ export class BrowserManager {
       document.querySelectorAll("a[href]").forEach((el) => {
         const element = el as HTMLAnchorElement;
         if (isVisible(element)) {
+          const href = element.getAttribute("href") || element.href;
           links.push({
-            selector: getSelector(element),
-            text: element.textContent?.trim() || element.href,
+            selector: element.getAttribute("href") ? `a[href="${element.getAttribute("href")}"]` : getSelector(element),
+            text: element.textContent?.trim() || href,
             tag: "a",
             visible: true,
             enabled: true,
@@ -467,9 +477,15 @@ export class BrowserManager {
 
   async close(): Promise<void> {
     this.stopRRWebRecording();
-    if (this.cdpSession) await this.cdpSession.detach();
-    if (this.context) await this.context.close();
-    if (this.browser) await this.browser.close();
+    try {
+      if (this.cdpSession) await this.cdpSession.detach();
+    } catch { /* already detached */ }
+    try {
+      if (this.context) await this.context.close();
+    } catch { /* already closed */ }
+    try {
+      if (this.browser) await this.browser.close();
+    } catch { /* already closed */ }
   }
 
   getPage(): Page | null {

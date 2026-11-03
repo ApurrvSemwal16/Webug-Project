@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1UsbV-af",
+    "runId": "test-e2e-1793540704636",
+    "eventIds": [
+      "dOSx1xDz"
+    ],
+    "firstTimestamp": 1793540708679,
+    "lastTimestamp": 1793540708679,
+    "severity": "high",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "investigated": true
+  }
+]

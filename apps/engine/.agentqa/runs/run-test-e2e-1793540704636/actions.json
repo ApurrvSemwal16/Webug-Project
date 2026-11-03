@@ -1,0 +1,80 @@
+[
+  {
+    "type": "click",
+    "target": ".add-to-cart",
+    "description": "Add product to cart",
+    "timestamp": 1793540706883
+  },
+  {
+    "type": "click",
+    "target": "a[href=\"/cart\"]",
+    "description": "Navigate to cart",
+    "timestamp": 1793540707506
+  },
+  {
+    "type": "type",
+    "target": "#coupon-input",
+    "value": "SAVE10",
+    "description": "Enter coupon code SAVE10",
+    "timestamp": 1793540708073
+  },
+  {
+    "type": "click",
+    "target": "#apply-coupon",
+    "description": "Apply coupon",
+    "timestamp": 1793540708670
+  },
+  {
+    "type": "click",
+    "target": "#checkout-btn",
+    "description": "Proceed to checkout",
+    "timestamp": 1793540709296
+  },
+  {
+    "type": "type",
+    "target": "#checkout-email",
+    "value": "test@example.com",
+    "description": "Enter email address",
+    "timestamp": 1793540709849
+  },
+  {
+    "type": "type",
+    "target": "#checkout-name",
+    "value": "John Doe",
+    "description": "Enter full name",
+    "timestamp": 1793540710417
+  },
+  {
+    "type": "type",
+    "target": "#checkout-address",
+    "value": "123 Main St",
+    "description": "Enter shipping address",
+    "timestamp": 1793540710989
+  },
+  {
+    "type": "type",
+    "target": "#checkout-city",
+    "value": "San Francisco",
+    "description": "Enter city",
+    "timestamp": 1793540711552
+  },
+  {
+    "type": "type",
+    "target": "#checkout-zip",
+    "value": "94102",
+    "description": "Enter ZIP code",
+    "timestamp": 1793540712115
+  },
+  {
+    "type": "click",
+    "target": "#place-order",
+    "description": "Place order",
+    "timestamp": 1793540712719
+  },
+  {
+    "type": "finish",
+    "target": "done",
+    "description": "Test complete - order confirmed",
+    "timestamp": 1793540713234
+  }
+]

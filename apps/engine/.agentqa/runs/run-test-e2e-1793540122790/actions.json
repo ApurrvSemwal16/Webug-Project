@@ -1,0 +1,8 @@
+[
+  {
+    "type": "click",
+    "target": ".add-to-cart",
+    "description": "Add product to cart",
+    "timestamp": 1793540124721
+  }
+]

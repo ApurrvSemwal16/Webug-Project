@@ -8,14 +8,18 @@ services:
     container_name: agentqa
     ports:
       - "3001:3001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_MODEL=qwen2.5-coder:7b
+      - OLLAMA_MODEL=qwen3:1.7b
       - AGENTQA_PORT=3001
       - DEMO_MODE=true
+      - DEMO_APP_URL=http://demo-app:3000
       - NODE_ENV=production
+      - AGENTQA_STORAGE_DIR=/data/runs
     volumes:
-      - agentqa-runs:/app/.agentqa/runs
+      - agentqa_runs:/data/runs
     depends_on:
       ollama:
         condition: service_healthy
@@ -23,6 +27,8 @@ services:
         condition: service_healthy
     restart: unless-stopped
     shm_size: 2gb
+    networks:
+      - agentqa-net
 
   demo-app:
     build:
@@ -35,12 +41,14 @@ services:
       - PORT=3000
       - NODE_ENV=production
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
       interval: 10s
       timeout: 5s
-      start_period: 10s
+      start_period: 15s
       retries: 5
     restart: unless-stopped
+    networks:
+      - agentqa-net
 
   ollama:
     image: ollama/ollama:latest
@@ -50,41 +58,50 @@ services:
     environment:
       - OLLAMA_HOST=0.0.0.0:11434
     volumes:
-      - ollama-models:/root/.ollama
+      - ollama_models:/root/.ollama
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      test: ["CMD", "curl", "-sf", "http://localhost:11434/api/tags"]
       interval: 10s
       timeout: 5s
       start_period: 30s
       retries: 10
     restart: unless-stopped
+    networks:
+      - agentqa-net
 
   ollama-init:
-    image: ollama/ollama:latest
+    image: curlimages/curl:latest
     container_name: agentqa-ollama-init
     environment:
-      - OLLAMA_HOST=http://ollama:11434
-      - OLLAMA_MODEL=qwen2.5-coder:7b
+      - MODEL=qwen3:1.7b
+      - OLLAMA_URL=http://ollama:11434
     depends_on:
       ollama:
         condition: service_healthy
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        until curl -sf http://ollama:11434/api/tags | grep -q "qwen2.5-coder:7b"; do
-          echo "Waiting for Ollama to be ready and model to be available..."
-          sleep 5
-        done
-        echo "Model already exists, skipping pull"
-        exit 0
-        # If model doesn't exist, pull it
-        ollama pull qwen2.5-coder:7b
+        echo "Checking if model $MODEL is already available..."
+        if curl -sf "$OLLAMA_URL/api/tags" | grep -q "$MODEL"; then
+          echo "Model $MODEL already exists, skipping pull."
+        else
+          echo "Pulling model $MODEL from Ollama..."
+          curl -X POST "$OLLAMA_URL/api/pull" \
+            -H "Content-Type: application/json" \
+            -d "{\"name\":\"$MODEL\"}" \
+            --no-buffer -s | while IFS= read -r line; do
+              echo "$line"
+            done
+          echo "Model pull complete."
+        fi
     restart: "no"
+    networks:
+      - agentqa-net
 
 volumes:
-  agentqa-runs:
-  ollama-models:
+  agentqa_runs:
+  ollama_models:
 
 networks:
-  default:
+  agentqa-net:
     name: agentqa-network

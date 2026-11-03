@@ -6,15 +6,15 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@agentqa/types': path.resolve(__dirname, '../packages/types/index.ts'),
+      '@agentqa/types': path.resolve(__dirname, '../../packages/types/index.ts'),
     },
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false,
   },
   server: {
-    port: 3001,
+    port: 5173,
     host: true,
     proxy: {
       '/api': {

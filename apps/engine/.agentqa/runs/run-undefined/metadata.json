@@ -1,0 +1,12 @@
+{
+  "url": "http://localhost:3000",
+  "goal": "Test the checkout flow and coupon validation",
+  "startTime": 1793540106155,
+  "status": "STOPPED",
+  "actions": [],
+  "events": [],
+  "incidents": [],
+  "bugs": [],
+  "demoMode": true,
+  "endTime": 1793540106161
+}

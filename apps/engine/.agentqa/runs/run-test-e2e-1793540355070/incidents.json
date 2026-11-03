@@ -1,0 +1,16 @@
+[
+  {
+    "id": "yvq3iz0S",
+    "runId": "test-e2e-1793540355070",
+    "eventIds": [
+      "CPh5i3v2"
+    ],
+    "firstTimestamp": 1793540358825,
+    "lastTimestamp": 1793540358825,
+    "severity": "high",
+    "url": "current_page",
+    "relatedActions": [],
+    "description": "Console error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "investigated": false
+  }
+]

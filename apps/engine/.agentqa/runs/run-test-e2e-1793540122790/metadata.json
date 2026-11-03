@@ -1,0 +1,20 @@
+{
+  "id": "test-e2e-1793540122790",
+  "url": "http://localhost:3000/",
+  "goal": "Test the checkout flow and coupon validation",
+  "startTime": 1793540122790,
+  "status": "FAILED",
+  "actions": [
+    {
+      "type": "click",
+      "target": ".add-to-cart",
+      "description": "Add product to cart",
+      "timestamp": 1793540124721
+    }
+  ],
+  "events": [],
+  "incidents": [],
+  "bugs": [],
+  "demoMode": true,
+  "endTime": 1793540125234
+}

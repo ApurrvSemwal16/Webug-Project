@@ -1,0 +1,16 @@
+[
+  {
+    "id": "iv2uMKsw",
+    "runId": "test-e2e-1793541390992",
+    "eventIds": [
+      "iJw7deyc"
+    ],
+    "firstTimestamp": 1793541394843,
+    "lastTimestamp": 1793541394843,
+    "severity": "critical",
+    "url": "http://localhost:3000/api/coupon",
+    "relatedActions": [],
+    "description": "REQUEST http://localhost:3000/api/coupon → 500 Internal Server Error",
+    "investigated": false
+  }
+]

@@ -1,0 +1,874 @@
+[
+  {
+    "id": "JA_a-coW",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391319,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Linux\""
+      }
+    }
+  },
+  {
+    "id": "QglnDRFO",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391325,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "cache-control": "public, max-age=0",
+        "connection": "keep-alive",
+        "content-length": "11722",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "etag": "W/\"2dca-1a04764a3c8\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Fri, 28 Aug 2026 08:02:53 GMT",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541391311.758,
+        "domainLookupStart": 0.602,
+        "domainLookupEnd": 0.816,
+        "connectStart": 0.816,
+        "connectEnd": 1.513,
+        "requestStart": 1.787,
+        "responseStart": 5.136,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "wruGQ7Up",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391329,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "pqxa4MTi",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391335,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "eMCrk621",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391335,
+    "type": "network_request",
+    "data": {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "NT7fPpb0",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391337,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/app.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "VMTckPvQ",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391350,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/app.js",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"3c9e-1a197546ad6\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "15518",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "last-modified": "Sun, 01 Nov 2026 13:37:34 GMT",
+        "x-powered-by": "Express",
+        "content-type": "application/javascript; charset=UTF-8"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541391338.182,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.309,
+        "responseStart": 3.441,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "0HwsALJ7",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391706,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/",
+      "status": 302,
+      "statusText": "",
+      "headers": {
+        "strict-transport-security": "max-age=63072000",
+        "cache-control": "max-age=14400",
+        "location": "/3.4.17",
+        "x-vercel-cache": "MISS",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cf-cache-status": "HIT",
+        "age": "615",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=K%2BpXmI51gyKhJ74JI5vfInsk11lVBkCPCJ3N%2BUrv%2BGZbmPgZohnO1g%2B6UfVsqP8PyqRnCHU6e9ondKhaRXjyEiGDJC8z8e7TpXp8fkCRuEFdTAF1l2NZNalTFcBAKxiOdybkDHmQ%2BY%2FKvysQXWIjbb0%3D\"}]}",
+        "cf-ray": "a53b6741ee3f3b7f-BOM",
+        "date": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "server": "cloudflare",
+        "x-vercel-id": "bom1::iad1::w8c86-1793540775591-883ba1a395a1"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541391337.2651,
+        "domainLookupStart": 0.384,
+        "domainLookupEnd": 25.612,
+        "connectStart": 25.772,
+        "connectEnd": 324.926,
+        "requestStart": 326.156,
+        "responseStart": 363.728,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "eIvhPfd6",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391707,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/3.4.17",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "referer": "http://localhost:3000/"
+      }
+    }
+  },
+  {
+    "id": "844e8p_k",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391757,
+    "type": "network_response",
+    "data": {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "content-encoding": "gzip",
+        "x-content-type-options": "nosniff",
+        "expires": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "date": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "content-type": "text/css; charset=utf-8",
+        "vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "last-modified": "Sun, 01 Nov 2026 13:21:26 GMT",
+        "x-frame-options": "SAMEORIGIN",
+        "strict-transport-security": "max-age=31536000",
+        "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+        "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+        "timing-allow-origin": "*",
+        "cross-origin-opener-policy": "same-origin-allow-popups",
+        "cross-origin-resource-policy": "cross-origin",
+        "access-control-allow-origin": "*",
+        "x-xss-protection": "0",
+        "server": "ESF"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541391337.911,
+        "domainLookupStart": 0.108,
+        "domainLookupEnd": 21.46,
+        "connectStart": 21.71,
+        "connectEnd": 324.868,
+        "requestStart": 325.302,
+        "responseStart": 413.066,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "LvTYBltQ",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391830,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.tailwindcss.com/3.4.17",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "strict-transport-security": "max-age=63072000",
+        "cache-control": "max-age=31536000",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "content-encoding": "br",
+        "x-vercel-cache": "MISS",
+        "cf-cache-status": "HIT",
+        "age": "746639",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=66rQTK0PI%2Bwof6C9nYwXDhQVWHDsh%2BZDoGqeclqIZ52Vcg%2FTbgkYPP%2BWzrFf%2BUMj%2FV5IMCGrPd6b6wcdkS8caXbYzOAXozpStDxswjvwsixjDKNmSYs0d6bIenqmo%2Brt4N2BWVL5jmjChV7q302ILSk%3D\"}]}",
+        "last-modified": "Wed, 28 Oct 2026 02:07:43 GMT",
+        "cf-ray": "a53b67422e773b7f-BOM",
+        "date": "Sun, 01 Nov 2026 13:56:31 GMT",
+        "content-type": "text/javascript",
+        "vary": "accept-encoding",
+        "server": "cloudflare",
+        "x-vercel-id": "bom1::iad1::mnwth-1792794751405-47e4c7c19762"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541391704.109,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.767,
+        "responseStart": 40.895,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "11DrgEW_",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541391942,
+    "type": "console_warning",
+    "data": {
+      "text": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+      "location": {
+        "url": "https://cdn.tailwindcss.com/",
+        "line": 63,
+        "column": 1710,
+        "lineNumber": 63,
+        "columnNumber": 1710
+      }
+    }
+  },
+  {
+    "id": "oq3wK1rU",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392213,
+    "type": "network_request",
+    "data": {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "method": "GET",
+      "headers": {
+        "origin": "http://localhost:3000",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://fonts.googleapis.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "udQiomlQ",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392217,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/products",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "pMWF4D2D",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392225,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/products",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "etag": "W/\"1a9-x4ymPlM1OaZAokoixbXC0H1WQW0\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "425",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:56:32 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541392212.126,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.485,
+        "responseStart": 3.389,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "Tj2WxlU2",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392297,
+    "type": "network_response",
+    "data": {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "age": "255529",
+        "report-to": "{\"group\":\"apps-themes\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/apps-themes\"}]}",
+        "x-content-type-options": "nosniff",
+        "expires": "Fri, 29 Oct 2027 14:57:43 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "date": "Thu, 29 Oct 2026 14:57:43 GMT",
+        "last-modified": "Tue, 09 Sep 2025 18:33:53 GMT",
+        "content-type": "font/woff2",
+        "cache-control": "public, max-age=31536000",
+        "timing-allow-origin": "*",
+        "cross-origin-opener-policy": "same-origin; report-to=\"apps-themes\"",
+        "cross-origin-resource-policy": "cross-origin",
+        "content-security-policy-report-only": "require-trusted-types-for 'script'; report-uri https://csp.withgoogle.com/csp/apps-themes",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "48256",
+        "x-xss-protection": "0",
+        "server": "sffe"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541392210.613,
+        "domainLookupStart": 0.269,
+        "domainLookupEnd": 16.301,
+        "connectStart": 16.542,
+        "connectEnd": 41.931,
+        "requestStart": 42.422,
+        "responseStart": 52.221,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "BqcXpM0M",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392323,
+    "type": "network_request",
+    "data": {
+      "url": "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.11/dist/rrweb.min.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  },
+  {
+    "id": "HtjTyKj_",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392385,
+    "type": "network_response",
+    "data": {
+      "url": "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.11/dist/rrweb.min.js",
+      "status": 200,
+      "statusText": "",
+      "headers": {
+        "access-control-expose-headers": "*",
+        "content-encoding": "br",
+        "etag": "W/\"241cd-31de183068b84251\"",
+        "age": "1081640",
+        "x-content-type-options": "nosniff",
+        "x-jsd-version-type": "version",
+        "alt-svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+        "x-cache": "HIT, HIT",
+        "date": "Sun, 01 Nov 2026 13:56:32 GMT",
+        "content-type": "application/javascript; charset=utf-8",
+        "x-served-by": "cache-fra-etou8220125-FRA, cache-del-vibw2260036-DEL",
+        "vary": "Accept-Encoding",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "timing-allow-origin": "*",
+        "cross-origin-resource-policy": "cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "45574",
+        "x-jsd-version": "2.0.0-alpha.11"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541392321.1829,
+        "domainLookupStart": 0.216,
+        "domainLookupEnd": 11.242,
+        "connectStart": 11.43,
+        "connectEnd": 39.993,
+        "requestStart": 40.523,
+        "responseStart": 46.768,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "3AE9NRAH",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541392462,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/",
+      "title": "AgentQA Demo Store",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "YZD_9a6o",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393052,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/cart",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"productId\":1,\"quantity\":1}"
+    }
+  },
+  {
+    "id": "Kn1NVGC-",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393058,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": ".add-to-cart",
+        "description": "Add product to cart",
+        "timestamp": 1793541393058
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "eTESi706",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393063,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/cart",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "etag": "W/\"49-NiXlmJcA+zdrxLuf4EZwciNfoPY\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "73",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:56:33 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541393049.793,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.363,
+        "responseStart": 4.953,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "t8vQNKc6",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393657,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/cart",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "dC95bCV7",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393658,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/cart",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "JkWfSp0k",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541393676,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "a[href=\"/cart\"]",
+        "description": "Navigate to cart",
+        "timestamp": 1793541393676
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "apETQFAF",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394237,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#coupon-input",
+        "value": "SAVE10",
+        "description": "Enter coupon code SAVE10",
+        "timestamp": 1793541394238
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "IxTUMqw-",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394825,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/coupon",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/cart",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"code\":\"SAVE10\"}"
+    }
+  },
+  {
+    "id": "-vB9oM_6",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394829,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#apply-coupon",
+        "description": "Apply coupon",
+        "timestamp": 1793541394829
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "iJw7deyc",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394843,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/coupon",
+      "status": 500,
+      "statusText": "Internal Server Error",
+      "headers": {
+        "etag": "W/\"53-2ng1T/pjQZhY2J4wyyryvYs+/Io\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "83",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:56:34 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541394821.431,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.345,
+        "responseStart": 3.694,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "Gh1ZeaQS",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394845,
+    "type": "network_error",
+    "data": {
+      "url": "http://localhost:3000/api/coupon",
+      "status": 500,
+      "statusText": "Internal Server Error"
+    }
+  },
+  {
+    "id": "UFIN9dKq",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541394845,
+    "type": "console_error",
+    "data": {
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "location": {
+        "url": "http://localhost:3000/api/coupon",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  },
+  {
+    "id": "QoeCvqrn",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541395419,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/checkout",
+      "title": "",
+      "referrer": ""
+    }
+  },
+  {
+    "id": "YSco5d6s",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541395436,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#checkout-btn",
+        "description": "Proceed to checkout",
+        "timestamp": 1793541395436
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "8MvXKpfG",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541395983,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-email",
+        "value": "test@example.com",
+        "description": "Enter email address",
+        "timestamp": 1793541395984
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "Cf1TFz0g",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541396541,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-name",
+        "value": "John Doe",
+        "description": "Enter full name",
+        "timestamp": 1793541396541
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "L9gLd8B3",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541397079,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-address",
+        "value": "123 Main St",
+        "description": "Enter shipping address",
+        "timestamp": 1793541397080
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "P7G0nIT7",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541397624,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-city",
+        "value": "San Francisco",
+        "description": "Enter city",
+        "timestamp": 1793541397624
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "0Al_j9Hh",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541398163,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "type",
+        "target": "#checkout-zip",
+        "value": "94102",
+        "description": "Enter ZIP code",
+        "timestamp": 1793541398163
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "TqzMiDgg",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541398741,
+    "type": "network_request",
+    "data": {
+      "url": "http://localhost:3000/api/checkout",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "http://localhost:3000/checkout",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"email\":\"test@example.com\",\"shippingAddress\":\"John Doe, 123 Main St, San Francisco 94102\"}"
+    }
+  },
+  {
+    "id": "-d7nkzjQ",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541398745,
+    "type": "agent_action",
+    "data": {
+      "action": {
+        "type": "click",
+        "target": "#place-order",
+        "description": "Place order",
+        "timestamp": 1793541398745
+      },
+      "success": true
+    }
+  },
+  {
+    "id": "DDJe4_l8",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541398755,
+    "type": "network_response",
+    "data": {
+      "url": "http://localhost:3000/api/checkout",
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "etag": "W/\"109-DvClzStBOTv/7WIN9z8GxRtOVds\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "content-length": "265",
+        "keep-alive": "timeout=5",
+        "date": "Sun, 01 Nov 2026 13:56:38 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "fromCache": false,
+      "timing": {
+        "startTime": 1793541398739.5789,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.328,
+        "responseStart": 3.274,
+        "responseEnd": -1
+      }
+    }
+  },
+  {
+    "id": "OlkZT1WA",
+    "runId": "test-e2e-1793541390992",
+    "timestamp": 1793541398759,
+    "type": "navigation",
+    "data": {
+      "url": "http://localhost:3000/confirmation",
+      "title": "",
+      "referrer": ""
+    }
+  }
+]

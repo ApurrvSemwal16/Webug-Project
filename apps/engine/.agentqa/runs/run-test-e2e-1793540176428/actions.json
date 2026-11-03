@@ -1,0 +1,33 @@
+[
+  {
+    "type": "click",
+    "target": ".add-to-cart",
+    "description": "Add product to cart",
+    "timestamp": 1793540178428
+  },
+  {
+    "type": "click",
+    "target": "a[href=\"/cart\"]",
+    "description": "Navigate to cart",
+    "timestamp": 1793540179039
+  },
+  {
+    "type": "type",
+    "target": "#coupon-input",
+    "value": "SAVE10",
+    "description": "Enter coupon code SAVE10",
+    "timestamp": 1793540179594
+  },
+  {
+    "type": "click",
+    "target": "#apply-coupon",
+    "description": "Apply coupon",
+    "timestamp": 1793540180192
+  },
+  {
+    "type": "click",
+    "target": "#checkout-btn",
+    "description": "Proceed to checkout",
+    "timestamp": 1793540180799
+  }
+]

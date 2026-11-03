@@ -15,6 +15,22 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: Date.now() });
 });
 
+// Deterministic fix mechanism
+let isFixApplied = false;
+app.post('/api/admin/apply-fix', (req, res) => {
+  isFixApplied = true;
+  res.json({ success: true, message: 'Fix applied successfully', isFixApplied });
+});
+
+app.post('/api/admin/reset-fix', (req, res) => {
+  isFixApplied = false;
+  res.json({ success: true, message: 'Fix reset successfully', isFixApplied });
+});
+
+app.get('/api/admin/fix-status', (req, res) => {
+  res.json({ isFixApplied });
+});
+
 // Products API
 app.get('/api/products', (req, res) => {
   res.json([
@@ -85,7 +101,7 @@ app.post('/api/coupon', (req, res) => {
   // Simulate a bug: certain coupon codes cause server error
   const buggyCodes = ['SAVE10', 'DISCOUNT20', 'BUGGY50'];
 
-  if (buggyCodes.includes(code?.toUpperCase())) {
+  if (!isFixApplied && buggyCodes.includes(code?.toUpperCase())) {
     // This is the intentional bug - returns 500 instead of proper error handling
     console.error(`[BUG] Coupon validation failed for code: ${code}`);
     throw new Error('Coupon validation service unavailable');
@@ -96,6 +112,7 @@ app.post('/api/coupon', (req, res) => {
     'WELCOME10': { discount: 10, type: 'percent' },
     'SAVE20': { discount: 20, type: 'percent' },
     'FREESHIP': { discount: 9.99, type: 'fixed' },
+    ...(isFixApplied ? { 'SAVE10': { discount: 10, type: 'percent' } } : {}),
   };
 
   const coupon = validCoupons[code?.toUpperCase()];

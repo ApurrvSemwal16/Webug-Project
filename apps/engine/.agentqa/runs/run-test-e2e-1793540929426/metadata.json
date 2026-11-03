@@ -1,0 +1,92 @@
+{
+  "id": "test-e2e-1793540929426",
+  "url": "http://localhost:3000/confirmation",
+  "goal": "Test the checkout flow and coupon validation",
+  "startTime": 1793540929427,
+  "status": "STOPPED",
+  "actions": [
+    {
+      "type": "click",
+      "target": ".add-to-cart",
+      "description": "Add product to cart",
+      "timestamp": 1793540931602
+    },
+    {
+      "type": "click",
+      "target": "a[href=\"/cart\"]",
+      "description": "Navigate to cart",
+      "timestamp": 1793540932245
+    },
+    {
+      "type": "type",
+      "target": "#coupon-input",
+      "value": "SAVE10",
+      "description": "Enter coupon code SAVE10",
+      "timestamp": 1793540932830
+    },
+    {
+      "type": "click",
+      "target": "#apply-coupon",
+      "description": "Apply coupon",
+      "timestamp": 1793540933430
+    },
+    {
+      "type": "click",
+      "target": "#checkout-btn",
+      "description": "Proceed to checkout",
+      "timestamp": 1793540934052
+    },
+    {
+      "type": "type",
+      "target": "#checkout-email",
+      "value": "test@example.com",
+      "description": "Enter email address",
+      "timestamp": 1793540934645
+    },
+    {
+      "type": "type",
+      "target": "#checkout-name",
+      "value": "John Doe",
+      "description": "Enter full name",
+      "timestamp": 1793540935205
+    },
+    {
+      "type": "type",
+      "target": "#checkout-address",
+      "value": "123 Main St",
+      "description": "Enter shipping address",
+      "timestamp": 1793540935761
+    },
+    {
+      "type": "type",
+      "target": "#checkout-city",
+      "value": "San Francisco",
+      "description": "Enter city",
+      "timestamp": 1793540936322
+    },
+    {
+      "type": "type",
+      "target": "#checkout-zip",
+      "value": "94102",
+      "description": "Enter ZIP code",
+      "timestamp": 1793540936888
+    },
+    {
+      "type": "click",
+      "target": "#place-order",
+      "description": "Place order",
+      "timestamp": 1793540937483
+    },
+    {
+      "type": "finish",
+      "target": "done",
+      "description": "Test complete - order confirmed",
+      "timestamp": 1793540937994
+    }
+  ],
+  "events": [],
+  "incidents": [],
+  "bugs": [],
+  "demoMode": true,
+  "endTime": 1793541229428
+}

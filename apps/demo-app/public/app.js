@@ -228,8 +228,14 @@ class DemoStore {
 
   showPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
-    document.getElementById(`${page}-page`).classList.remove('hidden');
+    const pageEl = document.getElementById(`${page}-page`);
+    if (pageEl) pageEl.classList.remove('hidden');
     this.currentPage = page;
+
+    const targetPath = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({}, '', targetPath);
+    }
 
     if (page === 'cart') this.renderCart();
     if (page === 'checkout') this.renderCheckoutItems();

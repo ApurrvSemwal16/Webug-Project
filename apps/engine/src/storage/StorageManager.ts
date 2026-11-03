@@ -2,12 +2,11 @@
  * Storage Manager - Handles local JSON file storage for test runs
  */
 
-import { mkdir, readFile, writeFile, readdir, rm, stat } from "fs/promises";
-import { join } from "path";
+import { mkdir, writeFile, readdir, rm, stat } from "fs/promises";
+import { join, dirname } from "path";
 import { TestMetadata, BrowserEvent, Incident, BugReport, ReplayData, AgentAction } from "@agentqa/types";
-import { nanoid } from "nanoid";
 
-const STORAGE_DIR = process.env.AGENTQA_STORAGE_DIR || "/app/.agentqa/runs";
+const STORAGE_DIR = process.env.AGENTQA_STORAGE_DIR || join(process.cwd(), ".agentqa/runs");
 
 export class StorageManager {
   private initialized = false;
@@ -41,22 +40,30 @@ export class StorageManager {
     await this.writeJson(this.getFilePath(metadata.id, "metadata.json"), metadata);
   }
 
-  getTest(runId: string): TestMetadata | null {
+  async getTest(runId: string): Promise<TestMetadata | null> {
     try {
       const file = Bun.file(this.getFilePath(runId, "metadata.json"));
       if (!(await file.exists())) return null;
-      return await file.json();
+      const test: TestMetadata = await file.json();
+      if (!test.bugs || test.bugs.length === 0) {
+        test.bugs = await this.getBugs(runId);
+      }
+      if (!test.events || test.events.length === 0) {
+        test.events = await this.getEvents(runId);
+      }
+      if (!test.actions || test.actions.length === 0) {
+        test.actions = await this.getActions(runId);
+      }
+      if (!test.incidents || test.incidents.length === 0) {
+        test.incidents = await this.getIncidents(runId);
+      }
+      return test;
     } catch {
       return null;
     }
   }
 
-  listTests(): TestMetadata[] {
-    // This is synchronous for listing, but we'll make it work
-    return [];
-  }
-
-  async listTestsAsync(): Promise<TestMetadata[]> {
+  async listTests(): Promise<TestMetadata[]> {
     await this.initialize();
     try {
       const entries = await readdir(STORAGE_DIR);
@@ -74,9 +81,22 @@ export class StorageManager {
     }
   }
 
+  private eventWriteQueues: Map<string, Promise<void>> = new Map();
+
   async appendEvent(runId: string, event: BrowserEvent): Promise<void> {
-    const events = await this.getEvents(runId);
-    events.push(event);
+    const prev = this.eventWriteQueues.get(runId) || Promise.resolve();
+    const next = prev.then(async () => {
+      const events = await this.getEvents(runId);
+      events.push(event);
+      await this.writeJson(this.getFilePath(runId, "events.json"), events);
+    }).catch(err => {
+      console.error("[storage] appendEvent error:", err);
+    });
+    this.eventWriteQueues.set(runId, next);
+    await next;
+  }
+
+  async setEvents(runId: string, events: BrowserEvent[]): Promise<void> {
     await this.writeJson(this.getFilePath(runId, "events.json"), events);
   }
 
@@ -157,6 +177,7 @@ export class StorageManager {
   }
 
   private async writeJson(path: string, data: unknown): Promise<void> {
+    await mkdir(dirname(path), { recursive: true });
     await writeFile(path, JSON.stringify(data, null, 2));
   }
 
